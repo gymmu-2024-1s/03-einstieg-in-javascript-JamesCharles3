@@ -123,4 +123,85 @@ linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 export function aufgabe06(args) {
   const input = args
   const result = []
+  let hasspecialcaracter = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const upper = currentElement.toUpperCase()
+    const lower = upper.toLowerCase()
+    if (upper === lower) {
+      hasspecialcaracter = true
+    }
+  }
+  return hasspecialcaracter
 }
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
+
+export function aufgabe07(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Prüfe ob es ein u ist
+    if (currentElement === "u") {
+      // prüfe ob das nächste element ein n ist
+      if (input[i + 1] === "n") {
+        // prüfe ob das dritte element ein d ist
+        if (input[i + 2] === "d") {
+          // das ist das richtige Element
+          return true
+        }
+      }
+    }
+  }
+  // Wenn kein und gefunden wurde, gebe false zurück
+  return false
+}
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // ersetze e mit einer 3
+    if (currentElement === "e") {
+      result.push("3")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
+
+export function aufgabe09(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Teste ob eine Eingabe genau sechs Zeichen lang ist
+    if (input.length === 6) {
+      return true
+    }
+    return false
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
+
+export function aufgabe10(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    //
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
