@@ -114,6 +114,10 @@ export function aufgabe05(args) {
     } else if (currentElement === upperCaseVersion) {
       hasUpperCaseLetter = true
     }
+    //sollte nur sonderzeichen falsch sein
+    else {
+      hasUpperCaseLetter = false
+    }
   }
 
   return hasUpperCaseLetter
@@ -135,6 +139,7 @@ export function aufgabe06(args) {
   }
   return hasspecialcaracter
 }
+
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
 export function aufgabe07(args) {
@@ -198,10 +203,59 @@ export function aufgabe10(args) {
   const input = args
   const result = []
 
+  //teste ob input genau 7 Zeichen lang ist
+  if (input.length === 7) {
+    //return true
+  } else {
+    return false
+  }
+
+  //teste ob das erste zeichen ein # ist
+  if (input[0] === "#") {
+    //return true
+  } else {
+    return false
+  }
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    //
+    //Teste ob eine Eingabe ein korrekter RGB Hexcode ist
+    if (
+      currentElement === "0" ||
+      currentElement === "1" ||
+      currentElement === "2" ||
+      currentElement === "3" ||
+      currentElement === "4" ||
+      currentElement === "5" ||
+      currentElement === "6" ||
+      currentElement === "7" ||
+      currentElement === "8" ||
+      currentElement === "9" ||
+      currentElement === "A" ||
+      currentElement === "B" ||
+      currentElement === "C" ||
+      currentElement === "D" ||
+      currentElement === "E" ||
+      currentElement === "F"
+    ) {
+      //return true
+    } else {
+      return false
+    }
   }
+  return true
 }
 
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
+export function aufgabe11(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    //Gib den ASCII code eines einzelnen Buchstabens an.
+    result.push(currentElement.charCodeAt(0))
+
+    return result
+  }
+}
