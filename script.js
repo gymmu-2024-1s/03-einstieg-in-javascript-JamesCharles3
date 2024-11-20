@@ -217,7 +217,7 @@ export function aufgabe10(args) {
     return false
   }
 
-  for (let i = 0; i < input.length; i++) {
+  for (let i = 1; i < input.length; i++) {
     const currentElement = input[i]
     //Teste ob eine Eingabe ein korrekter RGB Hexcode ist
     if (
@@ -251,6 +251,17 @@ linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 export function aufgabe11(args) {
   const input = args
   const result = []
+
+  // teste ob input länger als ein zeichen ist
+  if (input.length > 1) {
+    return null
+  }
+
+  // teste ob die eingabe 0 Zeichen hat
+  if (input.length === 0) {
+    return null
+  }
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     //Gib den ASCII code eines einzelnen Buchstabens an.
@@ -259,3 +270,71 @@ export function aufgabe11(args) {
     return result
   }
 }
+
+linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
+
+export function aufgabe12(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    // Suche die Position des ersten `e`s in einem Text.
+    if (currentElement === "e") {
+      return i
+    }
+  }
+  return -1
+}
+
+linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
+
+export function aufgabe13(args) {
+  const input = args
+  const result = []
+
+  let pos = -1
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Suche die Position des letzten `e`s in einem Text.
+    if (currentElement === "e") {
+      pos = i
+    }
+  }
+  return pos
+}
+linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
+
+export function aufgabe14(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Suche die Position des dritten `e`s in einem Text.
+    if (currentElement === "e") {
+      result.push(i)
+    }
+    if (result.length === 3) {
+      return i
+    }
+  }
+  return -1
+}
+
+linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
+
+export function aufgabe15(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Lesen Sie die Eingabe nur bis zum ersten Leerzeichen ein.
+    if (currentElement === " ") {
+    }
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
