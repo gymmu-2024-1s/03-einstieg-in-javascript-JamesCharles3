@@ -333,8 +333,39 @@ export function aufgabe15(args) {
     const currentElement = input[i]
     // Lesen Sie die Eingabe nur bis zum ersten Leerzeichen ein.
     if (currentElement === " ") {
+      return result.join("")
+    } else {
+      result.push(currentElement)
     }
   }
+  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
+
+export function aufgabe16(args) {
+  const input = args
+  const result1 = []
+  const result2 = []
+
+  let dollarFound = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Lesen Sie die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste ein, und den Rest als den zweiten Teil.
+    if (currentElement === "$") {
+      dollarFound = true
+    }
+
+    // Wenn du noch kein Dollar gefunden hast, dann hänge an result1 an
+    if (dollarFound === false) {
+      result1.push(currentElement)
+    } else {
+      result2.push(currentElement)
+    }
+  }
+
+  return [result1.join(""), result2.join("")]
+}
+
+linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
