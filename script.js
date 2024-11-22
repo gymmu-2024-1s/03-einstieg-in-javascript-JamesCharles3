@@ -88,10 +88,10 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 export function aufgabe04(args) {
   const input = args
   const result = []
-
+  let count = 0
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    let count = 0
+    // Zähle alle Wörter in einem Text
     if (currentElement === " ") {
       count = count + 1
     }
@@ -102,26 +102,21 @@ linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
   const input = args
-  const result = []
 
   let hasUpperCaseLetter = false
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const upperCaseVersion = currentElement.toUpperCase()
-    if (currentElement === "." || currentElement === " ") {
-      // Sonderzeichen ignorieren
-    } else if (currentElement === upperCaseVersion) {
+    const ascii = currentElement.charCodeAt(0)
+
+    if (ascii >= 65 && ascii <= 90) {
       hasUpperCaseLetter = true
-    }
-    //sollte nur sonderzeichen falsch sein
-    else {
-      hasUpperCaseLetter = false
     }
   }
 
   return hasUpperCaseLetter
 }
+
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
 export function aufgabe06(args) {
@@ -131,13 +126,29 @@ export function aufgabe06(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const upper = currentElement.toUpperCase()
-    const lower = upper.toLowerCase()
-    if (upper === lower) {
+    // teste ob in dem Text mindestens 1 Sonderzeichen vorkommt
+    if (
+      currentElement === "!" ||
+      currentElement === "@" ||
+      currentElement === "#" ||
+      currentElement === "$" ||
+      currentElement === "%" ||
+      currentElement === "^" ||
+      currentElement === "&" ||
+      currentElement === "*" ||
+      currentElement === "(" ||
+      currentElement === ")" ||
+      currentElement === "-" ||
+      currentElement === "."
+    ) {
       hasspecialcaracter = true
     }
+
+    if (hasspecialcaracter) {
+      return true
+    }
   }
-  return hasspecialcaracter
+  return false
 }
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
@@ -369,3 +380,48 @@ export function aufgabe16(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
+
+export function aufgabe17(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ','
+    getrennt.result.push(currentElement)
+
+    if (currentElement === ",") {
+      return result
+    }
+  }
+  return result
+}
+linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
+
+export function aufgabe18(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
+
+export function aufgabe19(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // verdopple jedes zeichen in der eingabe
+    result.push(currentElement, currentElement)
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
+
+export function aufgabe20(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {}
+}
+linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)

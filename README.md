@@ -69,7 +69,7 @@ Teste ob eine Eingabe genau sechs Zeichen lang ist.
 
 ## Aufgabe 10
 
-Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
+Teste ob eine Eingabe ein korrekter RGB Hexcode ist. #FF00A8
 
 ## Aufgabe 11
 
