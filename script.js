@@ -363,16 +363,17 @@ export function aufgabe16(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+
     // Lesen Sie die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste ein, und den Rest als den zweiten Teil.
     if (currentElement === "$") {
       dollarFound = true
-    }
-
-    // Wenn du noch kein Dollar gefunden hast, dann hänge an result1 an
-    if (dollarFound === false) {
-      result1.push(currentElement)
     } else {
-      result2.push(currentElement)
+      // Wenn du noch kein Dollar gefunden hast, dann hänge an result1 an
+      if (dollarFound === false) {
+        result1.push(currentElement)
+      } else {
+        result2.push(currentElement)
+      }
     }
   }
 
@@ -413,8 +414,9 @@ export function aufgabe19(args) {
   const result = []
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // verdopple jedes zeichen in der eingabe
-    result.push(currentElement, currentElement)
+    // jedes zeichen soll verdoppelt werden.
+    result.push(currentElement)
+    result.push(currentElement)
   }
 }
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
@@ -422,6 +424,113 @@ linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 export function aufgabe20(args) {
   const input = args
   const result = []
-  for (let i = 0; i < input.length; i++) {}
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Prüfen Sie ob nach jedem `.` ein Leerschlag kommt.
+    if (currentElement === ".") {
+      if (input[i + 1] === " ") {
+        return true
+      }
+      return false
+    }
+  }
 }
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
+
+export function aufgabe21(args) {
+  const input = args
+  const result = []
+
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+    // Kehren Sie die Eingabe um.
+    result.push(currentElement)
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+
+export function aufgabe22(args) {
+  const input = args
+  const result = []
+
+  let kFound = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Ersetze alle Zeichen aus der Eingabe mit `_` , bis zum ersten "k".
+    if (currentElement === "k") {
+      kFound = true
+    }
+
+    if (kFound === false) {
+      result.push("_")
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+export function aufgabe23(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Das erste Zeichen der Eingabe soll zusätzlich ganz vorne und ganz hinten an der Ausgabe angehängt werden.
+
+    if (i === 0) {
+      result.push(currentElement)
+    }
+
+    result.push(currentElement)
+
+    if (i === input.length - 1) {
+      result.push(input[0])
+    }
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
+
+export function aufgabe24(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Das erste und das letzte Zeichen der Eingabe sollen vertauscht werden.
+    if (i === 0 || i === input.length - 1) {
+      result.push(currentElement)
+    } else {
+      result.push(input[input.length - 1 - i])
+    }
+  }
+
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
+
+export function aufgabe25(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Das mittlere Zeichen der Eingabe soll gelöscht werden. Wenn die Anzahl Zeichen gerade ist, sollen die beiden mittleren Zeichen gelöscht werden.
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
+
+export function aufgabe26(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
