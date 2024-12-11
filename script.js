@@ -88,16 +88,44 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 export function aufgabe04(args) {
   const input = args
   const result = []
-  let count = 0
+
+  // Wir filtern die Eingabe so, dass nur noch Buchstaben und Leerzeichen übrig bleiben
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // Zähle alle Wörter in einem Text
-    if (currentElement === " ") {
-      count = count + 1
+    const ascii = currentElement.charCodeAt(0)
+    if (ascii >= 65 && ascii <= 90) {
+      result.push(currentElement)
+    } else if (ascii >= 97 && ascii <= 122) {
+      result.push(currentElement)
+    } else if (ascii === 32) {
+      result.push(currentElement)
     }
   }
+  // Jetzt könnten wir noch mehrere Leerzeichen am Stück haben, die müssen wir noch filtern
+
+  const result2 = []
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result[i]
+    const nextElement = result[i + 1]
+
+    if (currentElement === " " && nextElement === " ") {
+      // hier sind 2 Leerzeichen hintereinander, wir ignorieren das erste
+    } else {
+      result2.push(currentElement)
+    }
+  }
+  // jetzt können wir die Leerzeichen zählen
+  let count = 0
+  for (let i = 0; i < result2.length; i++) {
+    const currentElement = result2[i]
+    if (currentElement === " ") {
+      count++
+    }
+  }
+  // da es ein wort mehr wie leerzeichen gibt, geben wie leerzeichen +1 zurück
   return count + 1
 }
+
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
@@ -384,18 +412,23 @@ linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  const result = []
+  const totallist = []
+  const currentlist = []
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ','
-    getrennt.result.push(currentElement)
 
-    if (currentElement === ",") {
-      return result
+    // wenn wir auf ein Leerzeichen treffen, dann schreiben wir alles was wir bis jetzt haben, in die totalliste
+    if (currentElement === " ") {
+      totallist.push(currentlist.join(""))
+      currentlist.length = 0
+    } else {
+      currentlist.push(currentElement)
     }
   }
-  return result
+  // Wir schreiben alles was wir noch bis zum ende gelesen haben, in die liste totallist.push(currentlist.join(""))
+
+  return totallist
 }
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
@@ -529,27 +562,52 @@ export function aufgabe25(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // Das mittlere Zeichen der Eingabe soll gelöscht werden
-    if (i !== input.length / 2) {
-      result.push(currentElement)
 
-      // Wenn die Anzahl Zeichen gerade ist, sollen die beiden mittleren Zeichen gelöscht werden.
-      if (input.length % 2 === 0) {
+    // Das mittlere Zeichen der Eingabe soll gelöscht werden. Wenn die Anzahl Zeichen gerade ist, sollen die beiden mittleren Zeichen gelöscht werden.
+
+    if (input.length % 2 === 0) {
+      if (i === input.length / 2 - 1) {
+        continue
+      }
+      if (i === input.length / 2) {
+        continue
+      } else {
         result.push(currentElement)
       }
+    } else {
+      if (i === Math.floor(input.length / 2)) {
+        continue
+      }
+
+      result.push(currentElement)
     }
   }
 
   return result.join("")
 }
+
 linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
 
 export function aufgabe26(args) {
   const input = args
   const result = []
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    ascii = currentElement.charCodeAt(0)
+
     // Vergleichen Sie die ersten beiden Zeichen der Eingabe und vertauschen Sie diese so dass Sie alphanumerisch sortiert sind.
+
+    if (ascii >= 48 && ascii <= 57) {
+      result.push(currentElement)
+    } else {
+      if (ascii >= 65 && ascii <= 90) {
+        result.push(currentElement)
+      } else {
+        if (ascii >= 97 && ascii <= 122) {
+        }
+      }
+    }
   }
 }
 
