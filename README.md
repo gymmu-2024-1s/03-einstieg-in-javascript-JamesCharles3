@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dGPk4_Tz)
+
 # Einstieg ins Programmieren mit Javascript
 
 Dieses Projekt bietet viele Aufgaben mit automatischen Tests, bei denen Sie das
@@ -67,7 +69,7 @@ Teste ob eine Eingabe genau sechs Zeichen lang ist.
 
 ## Aufgabe 10
 
-Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
+Teste ob eine Eingabe ein korrekter RGB Hexcode ist. #FF00A8
 
 ## Aufgabe 11
 
