@@ -419,7 +419,7 @@ export function aufgabe17(args) {
     const currentElement = input[i]
 
     // wenn wir auf ein Leerzeichen treffen, dann schreiben wir alles was wir bis jetzt haben, in die totalliste
-    if (currentElement === " ") {
+    if (currentElement === ",") {
       totallist.push(currentlist.join(""))
       currentlist.length = 0
     } else {
@@ -664,3 +664,67 @@ export function aufgabe28(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
+
+export function aufgabe29(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // teste ob JC vorkommt. Falls ja ersetze durch James Charles. Wenn nein dann gebe falsch zurück.
+    if (currentElement === "J") {
+      if (input[i + 1] === "C") {
+        return "James Charles"
+      }
+    } else {
+      return false
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
+
+export function aufgabe30(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // ersetze JC in einem Text durch James Charles.
+    if (currentElement === "J") {
+      if (input[i + 1] === "C") {
+        result.push("James Charles")
+        i++
+      } else {
+        result.push(currentElement)
+      }
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
+
+export function aufgabe31(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // ersetze jedes "e" in einem Text durch "John Pork". Falls kein "e" vorkommt gebe "is calling" zurück.
+    if (currentElement === "e") {
+      result.push("John Pork")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe31]", aufgabe31)
