@@ -670,14 +670,35 @@ export function aufgabe28(args) {
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 
 export function eigeneAufgabe1(args) {
-  const input = args
+  const input = args // Der Eingabetext
   const result = []
+  let count = 0 // Zähler für das zweite Zeichen
 
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    const currentElement = input[i] // Aktuelles Zeichen
 
-    // wandle jeden zweiten Buchstaben in ein Grossbuchstaben um.
+    // Wenn das Zeichen ein Leerzeichen ist, ersetze es mit 'F' und zähle es
+    if (currentElement === " ") {
+      result.push("F")
+      count++ // Leerzeichen zählt auch
+    } else {
+      // Überprüfe, ob es sich um das zweite Zeichen handelt
+      if (count % 2 !== 0) {
+        // Wenn es noch kein Großbuchstabe ist, wandle es um
+        if (currentElement !== currentElement.toUpperCase()) {
+          result.push(currentElement.toUpperCase())
+        } else {
+          result.push(currentElement) // Wenn es bereits ein Großbuchstabe ist, bleibt es gleich
+        }
+      } else {
+        result.push(currentElement) // ansonsten bleibt das Zeichen unverändert
+      }
+      count++ // Zähler erhöhen
+    }
   }
+
+  // Gib das Ergebnis als einen zusammengefügten String zurück
+  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=eigeneAufgabe1]", eigeneAufgabe1)
