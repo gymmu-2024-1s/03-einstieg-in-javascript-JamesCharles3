@@ -707,21 +707,27 @@ linkupExerciseHandler("[data-click=eigeneAufgabe1]", eigeneAufgabe1)
 
 export function eigeneAufgabe2(args) {
   const input = args
-  const result = []
-
+  let sum = 0 // Variable, um die Summe der gefundenen Zahlen zu speichern
+  let hasNumber = false // überprüft ob eine Zahl vorhanden ist
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    const ascii = currentElement.charCodeAt(0)
-    // Lese jede Zahl und addiere sie am Ende zusammen. Gebe die Summe zurück. Falls keine Zahl vorhanden ist gebe s zurück.
-    if (currentElement >= 48 && currentElement <= 57) {
-      const num = parseInt(currentElement)
-      result.push(num)
-    } else {
-      result.push("s")
+    const currentElement = input[i] //Aktuelles Element
+    // Versuche jedes Zeichen in der aktuellen Zeichenkette auf Zahl zu prüfen
+    for (let j = 0; j < currentElement.length; j++) {
+      const currentChar = currentElement[j] //Aktuelles Zeichen
+
+      // überprüfe ob das Zeichen eine Zahl ist
+      if (!isNaN(currentChar) && currentChar !== " ") {
+        sum += parseInt(currentChar) // Zahl zur Summe hinzufügen
+        hasNumber = true // Zahl wurde gefunden
+      }
     }
   }
-
-  return result.join("")
+  // wenn eine Zahl gefunden wurde gebe die Summe zurück ansonsten gebe s zurück
+  if (hasNumber) {
+    return sum
+  } else {
+    return "s"
+  }
 }
 
 linkupExerciseHandler("[data-click=eigeneAufgabe2]", eigeneAufgabe2)
