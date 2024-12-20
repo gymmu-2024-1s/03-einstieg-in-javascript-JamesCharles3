@@ -711,7 +711,14 @@ export function eigeneAufgabe2(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    //
+    const ascii = currentElement.charCodeAt(0)
+    // Lese jede Zahl und addiere sie am Ende zusammen. Gebe die Summe zurück. Falls keine Zahl vorhanden ist gebe s zurück.
+    if (currentElement >= 48 && currentElement <= 57) {
+      const num = parseInt(currentElement)
+      result.push(num)
+    } else {
+      result.push("s")
+    }
   }
 
   return result.join("")
