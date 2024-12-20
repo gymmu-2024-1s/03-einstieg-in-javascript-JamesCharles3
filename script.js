@@ -735,11 +735,19 @@ linkupExerciseHandler("[data-click=eigeneAufgabe2]", eigeneAufgabe2)
 export function eigeneAufgabe3(args) {
   const input = args
   const result = []
+  const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+  let count = 0 //Zähler für Vokkale
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    //
+    // wenn das zeichen ein Vokal ist
+    if (vowels.includes(currentElement)) {
+      count++ // Zähler erhöhen
+    } else {
+      result.push(currentElement)
+    }
   }
+  return count // Rückgabe der Anzahl der Vokale
 }
 
 linkupExerciseHandler("[data-click=eigeneAufgabe3]", eigeneAufgabe3)
@@ -752,8 +760,7 @@ export function bubblesort(args) {
     const nextElement = list[i + 1]
     // Vergleiche die ASCII-Werte der beiden benachbarten Zeichen
     if (currentElement.charCodeAt(0) > nextElement.charCodeAt(0)) {
-      // Wenn der ASCII-Wert des aktuellen Zeichens größer ist als der des nächsten
-      // müssen die beiden Zeichen vertauscht werden.
+      // Wenn der ASCII-Wert des aktuellen Zeichens größer ist als der des nächsten müssen die beiden Zeichen vertauscht werden.
 
       // Reihenfolge stimmt nicht, Elemente müssen getauscht werden.
       const tmp = list[i + 1]
@@ -771,7 +778,7 @@ linkupExerciseHandler("[data-click=bubblesort]", bubblesort)
 
 export function Insertionsort(args) {
   const text = args
-  const list = text.split("") // Den Text in eine Liste von Zeichen umwandeln, damit man die Elemente vertauschen kann
+  const list = text.split("") // Text in eine Liste von Zeichen umwandeln
 
   // Beginnt den Sortierprozess ab dem zweiten Element der Liste
   for (let i = 1; i < list.length; i++) {
@@ -788,7 +795,7 @@ export function Insertionsort(args) {
   }
   const result = list.join("") // Wandelt die sortierte Liste zurück in einen String
 
-  return result // Gibt den sortierten String zurück
+  return result // gebe das Sortierte Ergebnis zurück
 }
 
 linkupExerciseHandler("[data-click=Insertionsort]", Insertionsort)
@@ -805,7 +812,7 @@ export function Bucketsort(args) {
 
   // Verteile jedes Zeichen in den entsprechenden Buckets (basierend auf ASCII-Wert)
   for (let i = 0; i < list.length; i++) {
-    const currentElement = list[i] // Das aktuelle Zeichen
+    const currentElement = list[i]
     const bucketIndex = currentElement.charCodeAt(0) - 97 // Berechne den Index des Buckets anhand des ASCII-Werts
 
     // Falls der Index im Bereich der 26 Buckets liegt
