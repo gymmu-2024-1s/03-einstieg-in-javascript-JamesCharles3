@@ -358,10 +358,10 @@ export function aufgabe14(args) {
       result.push(i)
     }
     if (result.length === 3) {
-      return i
+      return i // Rückgabe Position des dritten e
     }
   }
-  return -1
+  return -1 // wenn weniger als 3 e gefunden
 }
 
 linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
@@ -389,7 +389,7 @@ export function aufgabe16(args) {
   const result1 = []
   const result2 = []
 
-  let dollarFound = false
+  let dollarFound = false // Flag, um zu prüfen, ob das Dollar gefunden wurde
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -402,12 +402,13 @@ export function aufgabe16(args) {
       if (dollarFound === false) {
         result1.push(currentElement)
       } else {
+        // Wenn du schon ein Dollar gefunden hast, dann hänge an result2 an
         result2.push(currentElement)
       }
     }
   }
 
-  return [result1.join(""), result2.join("")]
+  return [result1.join(""), result2.join("")] // Rückgabe als Array mit den beiden Teilen
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
@@ -422,10 +423,10 @@ export function aufgabe17(args) {
 
     // wenn wir auf ein Leerzeichen treffen, dann schreiben wir alles was wir bis jetzt haben, in die totalliste
     if (currentElement === ",") {
-      totallist.push(currentlist.join(""))
-      currentlist.length = 0
+      totallist.push(currentlist.join("")) // füge das aktuelle element in die totalliste hinzu
+      currentlist.length = 0 // leere die currentlist für das nächste element
     } else {
-      currentlist.push(currentElement)
+      currentlist.push(currentElement) // hänge das zeichen an das aktuelle element
     }
   }
   // Wir schreiben alles was wir noch bis zum ende gelesen haben, in die liste totallist.push(currentlist.join(""))
@@ -466,9 +467,9 @@ export function aufgabe20(args) {
     // Prüfen Sie ob nach jedem `.` ein Leerschlag kommt.
     if (currentElement === ".") {
       if (input[i + 1] === " ") {
-        return true
+        return true // wenn ja, dann true
       }
-      return false
+      return false // wenn nicht, dann false
     }
   }
 }
@@ -493,19 +494,19 @@ export function aufgabe22(args) {
   const input = args
   const result = []
 
-  let kFound = false
+  let kFound = false // flag, um zu prüfen, ob das k gefunden wurde
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     // Ersetze alle Zeichen aus der Eingabe mit `_` , bis zum ersten "k".
     if (currentElement === "k") {
-      kFound = true
+      kFound = true // markiere das k als gefunden
     }
-
+    // ersetze alle zeichen vor k mit "_"
     if (kFound === false) {
-      result.push("_")
+      result.push("_") // füge "_" hinzu wenn k noch nicht gefunden wurde
     } else {
-      result.push(currentElement)
+      result.push(currentElement) //behalte das zeichen wenn k gefunden wurde
     }
   }
   return result.join("")
@@ -526,7 +527,7 @@ export function aufgabe23(args) {
     result.push(currentElement)
 
     if (i === input.length - 1) {
-      result.push(input[0])
+      result.push(input[0]) // füge das erste zeichen am ende hinzu
     }
   }
   return result.join("")
@@ -537,9 +538,9 @@ linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
 export function aufgabe24(args) {
   const input = args
   const result = []
-
+  //// Wenn die Eingabe kürzer als 2 Zeichen ist, wird sie unverändert zurückgegeben
   if (input.length < 2) {
-    return input
+    return input // Rückgabe des Eingabetexts, wenn er weniger als 2 Zeichen hat
   }
 
   const firstLetter = input[0]
@@ -553,7 +554,7 @@ export function aufgabe24(args) {
     result.push(currentElement)
   }
 
-  result.push(firstLetter)
+  result.push(firstLetter) // Das erste Zeichen wird am Ende des Ergebnisses hinzugefügt
 
   return result.join("")
 }
@@ -569,15 +570,18 @@ export function aufgabe25(args) {
     // Das mittlere Zeichen der Eingabe soll gelöscht werden. Wenn die Anzahl Zeichen gerade ist, sollen die beiden mittleren Zeichen gelöscht werden.
 
     if (input.length % 2 === 0) {
+      // das erste mittlere Zeichen
       if (i === input.length / 2 - 1) {
-        continue
+        continue //überspringe das zeichen
       }
       if (i === input.length / 2) {
-        continue
+        // Das zweite mittlere Zeichen
+        continue //überspringe das zeichen
       } else {
         result.push(currentElement)
       }
     } else {
+      // Wenn die Länge der Eingabe ungerade ist, lösche das mittlere Zeichen
       if (i === Math.floor(input.length / 2)) {
         continue
       }
@@ -595,20 +599,20 @@ export function aufgabe26(args) {
   const input = args
   const result = []
 
-  const firstElement = input[0]
+  const firstElement = input[0] //erstes elemetn der eingabe
 
-  const secondElement = input[1]
+  const secondElement = input[1] // ergebnisarray für die modifizierten zeichen
 
   // Wenn das erste Element des ASCII Wert grösser ist als das zweite dann vertausche sie.
   if (firstElement.charCodeAt(0) > secondElement.charCodeAt(0)) {
     // vertausche die Elemente
-    result.push(secondElement)
-    result.push(firstElement)
+    result.push(secondElement) //füge das zweite element zuerst hinzu
+    result.push(firstElement) // Füge das erste Element danach hinzu
   } else {
-    result.push(firstElement)
-    result.push(secondElement)
+    result.push(firstElement) // Füge das erste Element zuerst hinzu
+    result.push(secondElement) // Füge das zweite Element danach hinzu
   }
-
+  // Füge alle weiteren Elemente ab dem dritten Zeichen hinzu
   for (let i = 2; i < input.length; i++) {
     const currentElement = input[i]
 
@@ -646,7 +650,7 @@ export function aufgabe28(args) {
   const result1 = []
   const result2 = []
 
-  let secondNum = false
+  let secondNum = false //flag um die zweite zahl zu erkennen
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -654,9 +658,9 @@ export function aufgabe28(args) {
     // Testen Sie, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind. Falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung.
     if (ascii >= 48 && ascii <= 57) {
       if (secondNum === false) {
-        result1.push(currentElement)
+        result1.push(currentElement) // erste zahl wird in result1 gespeichert
       } else {
-        result2.push(currentElement)
+        result2.push(currentElement) // zweite zahl wird in result2 gespeichert
       }
     } else if (ascii === 32) {
       secondNum = true
@@ -664,7 +668,7 @@ export function aufgabe28(args) {
       return null
     }
   }
-
+  // Die Zahlen werden aus den Arrays result1 und result2 zusammengesetzt
   const num1 = parseInt(result1.join(""))
   const num2 = parseInt(result2.join(""))
   return num1 + num2
