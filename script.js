@@ -80,7 +80,7 @@ export function aufgabe03(args) {
       count = count + 1
     }
   }
-
+  // Rückgabe des Zählwerts
   return count
 }
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
@@ -131,17 +131,19 @@ linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 export function aufgabe05(args) {
   const input = args
 
-  let hasUpperCaseLetter = false
+  let hasUpperCaseLetter = false // Definiere eine Variable die überprüft ob ein Grossbuchstaben vorhanden ist.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    // Betsimme den ASCII Wert des aktuellen Zeichens
     const ascii = currentElement.charCodeAt(0)
 
     if (ascii >= 65 && ascii <= 90) {
+      // wenn es zwischen 65 und 90 ist, stimmt es
       hasUpperCaseLetter = true
     }
   }
-
+  // wenn ein Gossbuchstabe gefunden wurde, gib true aus, ansonsten false
   return hasUpperCaseLetter
 }
 
@@ -451,6 +453,7 @@ export function aufgabe19(args) {
     result.push(currentElement)
     result.push(currentElement)
   }
+  // Gib das Ergebnis als einen zusammengefügten String zurück
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
@@ -697,7 +700,6 @@ export function eigeneAufgabe1(args) {
     }
   }
 
-  // Gib das Ergebnis als einen zusammengefügten String zurück
   return result.join("")
 }
 
@@ -745,8 +747,8 @@ export function bubblesort(args) {
     // Vergleiche die ASCII-Werte der beiden benachbarten Zeichen
     if (currentElement.charCodeAt(0) > nextElement.charCodeAt(0)) {
       // Wenn der ASCII-Wert des aktuellen Zeichens größer ist als der des nächsten
-
       // müssen die beiden Zeichen vertauscht werden.
+
       // Reihenfolge stimmt nicht, Elemente müssen getauscht werden.
       const tmp = list[i + 1]
       list[i + 1] = list[i] // Tausche das aktuelle Element mit dem nächsten
@@ -756,7 +758,7 @@ export function bubblesort(args) {
     }
   }
   const result = list.join("")
-  return result // Gibt den sortierten String zurück
+  return result
 }
 
 linkupExerciseHandler("[data-click=bubblesort]", bubblesort)
