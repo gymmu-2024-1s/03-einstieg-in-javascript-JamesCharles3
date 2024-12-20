@@ -592,23 +592,27 @@ export function aufgabe26(args) {
   const input = args
   const result = []
 
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    ascii = currentElement.charCodeAt(0)
+  const firstElement = input[0]
 
-    // Vergleichen Sie die ersten beiden Zeichen der Eingabe und vertauschen Sie diese so dass Sie alphanumerisch sortiert sind.
+  const secondElement = input[1]
 
-    if (ascii >= 48 && ascii <= 57) {
-      result.push(currentElement)
-    } else {
-      if (ascii >= 65 && ascii <= 90) {
-        result.push(currentElement)
-      } else {
-        if (ascii >= 97 && ascii <= 122) {
-        }
-      }
-    }
+  // Wenn das erste Element des ASCII Wert grösser ist als das zweite dann vertausche sie.
+  if (firstElement.charCodeAt(0) > secondElement.charCodeAt(0)) {
+    // vertausche die Elemente
+    result.push(secondElement)
+    result.push(firstElement)
+  } else {
+    result.push(firstElement)
+    result.push(secondElement)
   }
+
+  for (let i = 2; i < input.length; i++) {
+    const currentElement = input[i]
+
+    result.push(currentElement)
+  }
+
+  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
@@ -668,23 +672,7 @@ linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 export function aufgabe29(args) {
   const input = args
   const result = []
-
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    // teste ob JC vorkommt. Falls ja ersetze durch James Charles. Wenn nein dann gebe falsch zurück.
-    if (currentElement === "J") {
-      if (input[i + 1] === "C") {
-        return "James Charles"
-      }
-    } else {
-      return false
-    }
-  }
-
-  return result.join("")
 }
-
-linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
 
 export function aufgabe30(args) {
   const input = args
@@ -716,7 +704,7 @@ export function aufgabe31(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // ersetze jedes "e" in einem Text durch "John Pork". Falls kein "e" vorkommt gebe "is calling" zurück.
+    // ersetze jedes "e" in einem Text durch "John Pork".
     if (currentElement === "e") {
       result.push("John Pork")
     } else {
