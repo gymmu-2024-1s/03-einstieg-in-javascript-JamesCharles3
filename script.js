@@ -46,7 +46,7 @@ export function aufgabe01(args) {
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
 
 export function aufgabe02(args) {
-  const input = args
+  const input = args //der Eingabetext
   const result = [] //das ist die Resultatliste
 
   //läuft zeichen für zeichen über den ganzen Text
@@ -66,10 +66,10 @@ export function aufgabe03(args) {
   const input = args
   const result = []
 
-  let count = 0
+  let count = 0 // Zähler für "e und "E
 
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    const currentElement = input[i] //Aktuelles Zeichen
     if (currentElement === "e") {
       // zähle eins hoch
       count = count + 1
@@ -171,14 +171,14 @@ export function aufgabe06(args) {
       currentElement === "-" ||
       currentElement === "."
     ) {
-      hasspecialcaracter = true
+      hasspecialcaracter = true // true wenn Sonderzeichen gefunden wurde
     }
 
     if (hasspecialcaracter) {
-      return true
+      return true //Sonderzeichen gefunden
     }
   }
-  return false
+  return false //kein sonderzeichen gefunden
 }
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
@@ -214,9 +214,9 @@ export function aufgabe08(args) {
     const currentElement = input[i]
     // ersetze e mit einer 3
     if (currentElement === "e") {
-      result.push("3")
+      result.push("3") // "e" wird durch "3" ersetzt
     } else {
-      result.push(currentElement)
+      result.push(currentElement) // anderes Zeichen beibehalten
     }
   }
 
@@ -233,9 +233,9 @@ export function aufgabe09(args) {
     const currentElement = input[i]
     // Teste ob eine Eingabe genau sechs Zeichen lang ist
     if (input.length === 6) {
-      return true
+      return true //sechs Zeichen
     }
-    return false
+    return false //keine sechs Zeichen
   }
 }
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
@@ -322,10 +322,10 @@ export function aufgabe12(args) {
 
     // Suche die Position des ersten `e`s in einem Text.
     if (currentElement === "e") {
-      return i
+      return i // rückgabe Position des ersten e
     }
   }
-  return -1
+  return -1 // wenn kein e gefunden
 }
 
 linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
@@ -334,16 +334,16 @@ export function aufgabe13(args) {
   const input = args
   const result = []
 
-  let pos = -1
+  let pos = -1 // initialisiere Position mit -1
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     // Suche die Position des letzten `e`s in einem Text.
     if (currentElement === "e") {
-      pos = i
+      pos = i // Aktualisiere die Position wenn "e" gefunden wurde
     }
   }
-  return pos
+  return pos // rückgabe Position des letzten e oder -1 wenn kein e gefunden
 }
 linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
 
