@@ -738,15 +738,8 @@ export function eigeneAufgabe3(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // ersetze jedes "e" in einem Text durch "John Pork".
-    if (currentElement === "e") {
-      result.push("John Pork")
-    } else {
-      result.push(currentElement)
-    }
+    //
   }
-
-  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=eigeneAufgabe3]", eigeneAufgabe3)
@@ -775,3 +768,64 @@ export function bubblesort(args) {
 }
 
 linkupExerciseHandler("[data-click=bubblesort]", bubblesort)
+
+export function Insertionsort(args) {
+  const text = args
+  const list = text.split("") // Den Text in eine Liste von Zeichen umwandeln, damit man die Elemente vertauschen kann
+
+  // Beginnt den Sortierprozess ab dem zweiten Element der Liste
+  for (let i = 1; i < list.length; i++) {
+    const currentElement = list[i] // Das aktuelle Element, das an die richtige Stelle eingefügt werden soll
+    let j = i - 1
+
+    // Verschiebt Elemente, die größer als currentElement sind, nach rechts
+    while (j >= 0 && list[j].charCodeAt(0) > currentElement.charCodeAt(0)) {
+      const tmp = list[j + 1] // Temporäre Variable zum Tauschen der Elemente
+      list[j + 1] = list[j] // Verschiebe das Element nach rechts
+      list[j] = tmp // Setze das aktuelle Element an die richtige Stelle
+      j--
+    }
+  }
+  const result = list.join("") // Wandelt die sortierte Liste zurück in einen String
+
+  return result // Gibt den sortierten String zurück
+}
+
+linkupExerciseHandler("[data-click=Insertionsort]", Insertionsort)
+
+export function Bucketsort(args) {
+  const text = args
+  const list = text.split("") // Den Text in eine Liste von Zeichen umwandeln
+  const buckets = []
+
+  // Erstelle 26 Buckets (einen für jeden Buchstaben
+  for (let i = 0; i < 26; i++) {
+    buckets.push([]) // Füge leere Buckets hinzu
+  }
+
+  // Verteile jedes Zeichen in den entsprechenden Buckets (basierend auf ASCII-Wert)
+  for (let i = 0; i < list.length; i++) {
+    const currentElement = list[i] // Das aktuelle Zeichen
+    const bucketIndex = currentElement.charCodeAt(0) - 97 // Berechne den Index des Buckets anhand des ASCII-Werts
+
+    // Falls der Index im Bereich der 26 Buckets liegt
+    if (bucketIndex >= 0 && bucketIndex < 26) {
+      buckets[bucketIndex].push(currentElement) // Füge das Zeichen in den entsprechenden Bucket ein
+    }
+  }
+
+  //Sortiere die Zeichen in jedem Bucket
+  for (let i = 0; i < buckets.length; i++) {
+    buckets[i].sort() // Sortiere die Zeichen im aktuellen Bucket aphabetisch
+  }
+
+  // Kombiniere die sortierten Buckets zu einem endgültigen Ergebnis
+  let result = ""
+  for (let i = 0; i < buckets.length; i++) {
+    result += buckets[i].join("") // Füge die Zeichen jedes Buckets zu einem String zusammen
+  }
+
+  return result
+}
+
+linkupExerciseHandler("[data-click=Bucketsort]", Bucketsort)
