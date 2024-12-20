@@ -150,3 +150,13 @@ Testen sie, ob eine Eingabe eine Zahl ist.
 
 Testen Sie, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind.
 Falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung.
+
+## Eigene Aufgabe 1
+
+Wandle jedes zweite Zeichen in einen Grossbuchstaben um. Falls es bereits ein
+Grossbuchstabe ist, soll es gleich bleiben.
+
+## Eigene Aufgabe 2
+
+Lese jede Zahl und addiere sie am Ende zusammen. Gebe die Summe zurück. Falls
+keine Zahl vorhanden ist gebe s zurück.

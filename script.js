@@ -619,7 +619,7 @@ linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
 
 export function aufgabe27(args) {
   const input = args
-  const result = []
+  const result = [] // hier speicher wir das Ergebnis
 
   if (input.length === 0) {
     return false
@@ -669,36 +669,34 @@ export function aufgabe28(args) {
 
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 
-export function aufgabe29(args) {
-  const input = args
-  const result = []
-}
-
-export function aufgabe30(args) {
+export function eigeneAufgabe1(args) {
   const input = args
   const result = []
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // ersetze JC in einem Text durch James Charles.
-    if (currentElement === "J") {
-      if (input[i + 1] === "C") {
-        result.push("James Charles")
-        i++
-      } else {
-        result.push(currentElement)
-      }
-    } else {
-      result.push(currentElement)
-    }
+
+    // wandle jeden zweiten Buchstaben in ein Grossbuchstaben um.
+  }
+}
+
+linkupExerciseHandler("[data-click=eigeneAufgabe1]", eigeneAufgabe1)
+
+export function eigeneAufgabe2(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    //
   }
 
   return result.join("")
 }
 
-linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
+linkupExerciseHandler("[data-click=eigeneAufgabe2]", eigeneAufgabe2)
 
-export function aufgabe31(args) {
+export function eigeneAufgabe3(args) {
   const input = args
   const result = []
 
@@ -715,4 +713,29 @@ export function aufgabe31(args) {
   return result.join("")
 }
 
-linkupExerciseHandler("[data-click=aufgabe31]", aufgabe31)
+linkupExerciseHandler("[data-click=eigeneAufgabe3]", eigeneAufgabe3)
+
+export function bubblesort(args) {
+  const text = args
+  const list = text.split("") // Damit wandeln wir den Text in eine Liste um, das brauchen wir wenn wir Elemente vertauschen möchten.
+  for (let i = 0; i < list.length - 1; i++) {
+    const currentElement = list[i]
+    const nextElement = list[i + 1]
+    // Vergleiche die ASCII-Werte der beiden benachbarten Zeichen
+    if (currentElement.charCodeAt(0) > nextElement.charCodeAt(0)) {
+      // Wenn der ASCII-Wert des aktuellen Zeichens größer ist als der des nächsten
+
+      // müssen die beiden Zeichen vertauscht werden.
+      // Reihenfolge stimmt nicht, Elemente müssen getauscht werden.
+      const tmp = list[i + 1]
+      list[i + 1] = list[i] // Tausche das aktuelle Element mit dem nächsten
+      list[i] = tmp
+      // Wenn ein Tausch stattgefunden hat, starte die Schleife von vorne
+      i = -1 // starte von vorne wenn etwas vertauscht wurde.
+    }
+  }
+  const result = list.join("")
+  return result // Gibt den sortierten String zurück
+}
+
+linkupExerciseHandler("[data-click=bubblesort]", bubblesort)
