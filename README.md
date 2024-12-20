@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dGPk4_Tz)
+
 # Einstieg ins Programmieren mit Javascript
 
 Dieses Projekt bietet viele Aufgaben mit automatischen Tests, bei denen Sie das
@@ -67,7 +69,7 @@ Teste ob eine Eingabe genau sechs Zeichen lang ist.
 
 ## Aufgabe 10
 
-Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
+Teste ob eine Eingabe ein korrekter RGB Hexcode ist. #FF00A8
 
 ## Aufgabe 11
 
@@ -148,3 +150,13 @@ Testen sie, ob eine Eingabe eine Zahl ist.
 
 Testen Sie, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind.
 Falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung.
+
+## Eigene Aufgabe 1
+
+Wandle jedes zweite Zeichen in einen Grossbuchstaben um. Falls es bereits ein
+Grossbuchstabe ist, soll es gleich bleiben.
+
+## Eigene Aufgabe 2
+
+Lese jede Zahl und addiere sie am Ende zusammen. Gebe die Summe zurück. Falls
+keine Zahl vorhanden ist gebe s zurück.
